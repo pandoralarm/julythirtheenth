@@ -45,7 +45,7 @@ export default {
 
     if (isListed) {
       this.isValidGuest = true;
-      this.iframeSrc = `https://mengoendang.com/testertester?to=${encodeURIComponent(this.honors)}`;
+      this.iframeSrc = `https://mengoendang.com/julythirteen?to=${encodeURIComponent(this.honors)}`;
     } else {
       this.isValidGuest = false;
     }
