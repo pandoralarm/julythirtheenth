@@ -2,8 +2,8 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  ssr: false,
-  target: 'static',
+  ssr: true,
+  // target: 'static',
   modules: [
     '@nuxt/fonts',
     '@nuxt/image',

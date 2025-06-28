@@ -19,35 +19,14 @@
   </div>
 </template>
 <script setup>
+const route = useRoute();
+const guest = route.query.honors ?? "Guest";
+
 useHead({
-  title: 'Wedding Invitation Berlin & Alan',
-  meta: [
-    { charset: 'utf-8' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no' },
-    { name: 'apple-mobile-web-app-capable', content: 'yes' },
-    { name: 'csrf-token', content: '1mLgHcy8ZqdHwLO9YTBOghB7yvr690VmNirmSrRs' },
-
-    { name: 'description', content: 'Wedding Invitation Berlin & Alan' },
-
-    // Open Graph
-    { property: 'og:site_name', content: 'Wedding Invitation Berlin & Alan' },
-    { property: 'og:title', content: 'Wedding Invitation Berlin & Alan' },
-    { property: 'og:description', content: 'Wedding Invitation Berlin & Alan' },
-    { property: 'og:url', content: 'https://mengoendang.com/julythirteen' },
-    { property: 'og:image', content: 'https://s3.ap-southeast-1.wasabisys.com/ajakan-user/photo/icon_wa/icon_wa_1821863_1750575720.jpg' },
-    { property: 'og:image:width', content: '256' },
-    { property: 'og:image:height', content: '256' },
-    { property: 'og:image:type', content: 'image/jpeg' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:updated_time', content: '1750520440' },
-
-    // Twitter
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:description', content: 'Wedding Invitation Berlin & Alan' },
-    { name: 'twitter:image', content: 'https://s3.ap-southeast-1.wasabisys.com/ajakan-user/photo/icon_wa/icon_wa_1821863_1750575720.jpg' }
-  ]
-})
+  title: `Invitation for ${guest}`,
+});
 </script>
+
 
 <script>
 export default {
@@ -68,14 +47,13 @@ export default {
     };
   },
   mounted() {
-
     const params = new URLSearchParams(window.location.search);
     this.honors = params.get("honors") || "";
 
     const isListed = this.allowedGuests.some(
       (name) => name.toLowerCase() === this.honors.toLowerCase()
     );
-      // isListed
+    // isListed
     if (true) {
       this.isValidGuest = true;
       this.iframeSrc = `https://mengoendang.com/julythirteen?to=${encodeURIComponent(this.honors)}`;
@@ -83,24 +61,19 @@ export default {
       this.isValidGuest = false;
     }
 
-        document.title = this.isValidGuest
+    document.title = this.isValidGuest
       ? `Invitation for ${this.honors}`
       : "Unauthorized Guest";
 
     const favicon = document.querySelector("link[rel~='icon']");
     if (favicon) {
-      favicon.href = this.isValidGuest
-        ? "/rings.png"
-        : "/rings.png";
+      favicon.href = this.isValidGuest ? "/rings.png" : "/rings.png";
     } else {
       const link = document.createElement("link");
       link.rel = "icon";
-      link.href = this.isValidGuest
-        ? "/rings.png"
-        : "/rings.png";
+      link.href = this.isValidGuest ? "/rings.png" : "/rings.png";
       document.head.appendChild(link);
     }
-
 
     // Optional: Responsive iframe logic
     const iframe = document.getElementById("invite-frame");
@@ -173,5 +146,4 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 }
-
 </style>
