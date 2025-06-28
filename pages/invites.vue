@@ -1,5 +1,7 @@
 <template>
-  <div ref="invitation">
+    <div class="body">
+
+  <div class="block" ref="invitation">
     Yth. {{ guestName }}<br /><br />
 
     Tanpa mengurangi rasa hormat, dengan segala kerendahan hati dan dengan
@@ -23,8 +25,11 @@
     Regards, Berlin and Alan
     <br /><br />
 
-    <button @click="copyText">Salin Undangan</button>
   </div>
+        
+    <button @click="copyText">Salin Undangan</button>
+    </div>
+
 </template>
 
 <script>
@@ -64,17 +69,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div {
+div.body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+div.block {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.25);
   margin: 20px;
-  width: 800px;
+  max-width: 800px;
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 0 100vmax 100vmax rgba(0, 0, 0, 0.05);
   font-family: sans-serif;
 
-  button {
+
+}  button {
     margin-top: 12px;
     padding: 8px 16px;
     background-color: #333;
@@ -88,5 +99,4 @@ div {
       background-color: #555;
     }
   }
-}
 </style>
