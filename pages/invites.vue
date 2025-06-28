@@ -11,7 +11,7 @@
 
     Berliana Savira Putri & Alan Raihan Maulana. <br /><br />
 
-    Undangan dapat diakses melalui:
+    Undangan dapat diakses melalui:<br />
     https://julythirteen.com/?honors={{ guestName.replace(/ /g, '+') }}
     <br /><br />
 
@@ -22,7 +22,8 @@
     Atas kehadiran dan doa restunya kami ucapkan terima kasih.
     <br />
 
-    Regards, Berlin and Alan
+    Regards,<br />
+ Berlin and Alan
     <br /><br />
 
   </div>
