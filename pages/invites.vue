@@ -1,36 +1,40 @@
 <template>
-    <div class="body">
+  <div class="body">
+    <input
+      v-model="guestName"
+      type="text"
+      placeholder="Masukkan nama tamu"
+      class="name-input"
+    />
 
-  <div class="block" ref="invitation">
-    Yth. {{ guestName }}<br /><br />
+    <div class="block" ref="invitation">
+      Yth. {{ guestName }}<br /><br />
 
-    Tanpa mengurangi rasa hormat, dengan segala kerendahan hati dan dengan
-    ungkapan syukur atas karunia Tuhan, kami mengundang {{ guestName }} untuk
-    hadir di acara pernikahan kami:
-    <br /><br />
+      Tanpa mengurangi rasa hormat, dengan segala kerendahan hati dan dengan
+      ungkapan syukur atas karunia Tuhan, kami mengundang {{ guestName }} untuk
+      hadir di acara pernikahan kami:
+      <br /><br />
 
-    Berliana Savira Putri & Alan Raihan Maulana. <br /><br />
+      Berliana Savira Putri & Alan Raihan Maulana. <br /><br />
 
-    Undangan dapat diakses melalui:<br />
-    https://julythirteen.com/?honors={{ guestName.replace(/ /g, '+') }}
-    <br /><br />
+      Undangan dapat diakses melalui:<br />
+      https://julythirteen.com/?honors={{ guestName.replace(/ /g, '+') }}
+      <br /><br />
 
-    Merupakan suatu kebahagiaan bagi kami apabila Saudara/Saudari dapat
-    berkenan hadir untuk memberikan doa restu kepada kami.
-    <br /><br />
+      Merupakan suatu kebahagiaan bagi kami apabila Saudara/Saudari dapat
+      berkenan hadir untuk memberikan doa restu kepada kami.
+      <br /><br />
 
-    Atas kehadiran dan doa restunya kami ucapkan terima kasih.
-    <br />
+      Atas kehadiran dan doa restunya kami ucapkan terima kasih.
+      <br />
 
-    Regards,<br />
- Berlin and Alan
-    <br /><br />
-
-  </div>
-        
-    <button @click="copyText">Salin Undangan</button>
+      Regards,<br />
+      Berlin and Alan
+      <br /><br />
     </div>
 
+    <button @click="copyText">Salin Undangan</button>
+  </div>
 </template>
 
 <script>
@@ -39,13 +43,6 @@ export default {
     return {
       guestName: "Tamu Undangan",
     };
-  },
-  mounted() {
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    if (name) {
-      this.guestName = decodeURIComponent(name.replace(/\+/g, ' '));
-    }
   },
   methods: {
     copyText() {
@@ -70,10 +67,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div.body{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+div.body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 div.block {
   background-color: white;
@@ -84,20 +83,28 @@ div.block {
   border-radius: 12px;
   box-shadow: 0 0 100vmax 100vmax rgba(0, 0, 0, 0.05);
   font-family: sans-serif;
+}
+input.name-input {
+  margin-bottom: 12px;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 400px;
+}
+button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
 
-
-}  button {
-    margin-top: 12px;
-    padding: 8px 16px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-
-    &:hover {
-      background-color: #555;
-    }
+  &:hover {
+    background-color: #555;
   }
+}
 </style>
